@@ -21,6 +21,11 @@ namespace TagLib.Tests.Images
 				TagTypes.TiffIFD |
 				TagTypes.XMP;
 
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
 
 		private string CreateDataString (int min_size)
 		{

@@ -14,6 +14,12 @@ namespace TagLib.Tests.Images
     {
 		private static string sample_file = "samples/sample_xmpnullended.jpg";
 
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
 		[Test]
 		public void ParseXmp ()
 		{

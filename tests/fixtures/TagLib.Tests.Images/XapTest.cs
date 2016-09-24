@@ -11,6 +11,11 @@ namespace TagLib.Tests.Images
 	[TestFixture]
 	public class XapTest
 	{
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
 		[Test]
 		public void Test ()
 		{

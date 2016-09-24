@@ -11,9 +11,10 @@ namespace TagLib.Tests.FileFormats
         private const string tmp_file = "samples/tmpwrite_v2_4_unsynch.mp3";
         private File file;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Init ()
         {
+            EnvironmentHelper.SetEnvironment();
             file = File.Create (sample24unsynchronization_file);
         }
 

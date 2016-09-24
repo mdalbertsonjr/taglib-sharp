@@ -11,6 +11,12 @@ namespace TagLib.Tests.Images
 	[TestFixture]
 	public class TiffNikon1Bibble58BitTest
 	{
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
 		[Test]
 		public void Test ()
 		{

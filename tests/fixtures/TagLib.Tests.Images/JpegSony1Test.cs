@@ -41,9 +41,10 @@ namespace TagLib.Tests.Images
 
 		private File file;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init ()
 		{
+            EnvironmentHelper.SetEnvironment();
 			file = File.Create (sample_file);
 		}
 

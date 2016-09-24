@@ -10,6 +10,12 @@ namespace TagLib.Tests.FileFormats
 	{
 		private static string BaseDirectory = "samples/audible";
 
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
 		[Test]
 		public void First ()
 		{

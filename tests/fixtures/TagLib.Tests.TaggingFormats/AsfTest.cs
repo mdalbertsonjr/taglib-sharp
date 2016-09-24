@@ -15,6 +15,12 @@ namespace TagLib.Tests.TaggingFormats
 		private static string [] val_gnre = new string [] {"Rap",
 			"Jazz", "Non-Genre", "Blues"};
 		
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
 		[Test]
 		public void TestTitle ()
 		{

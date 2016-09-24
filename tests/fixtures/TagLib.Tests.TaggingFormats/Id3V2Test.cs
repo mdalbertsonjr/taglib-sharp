@@ -14,8 +14,13 @@ namespace TagLib.Tests.TaggingFormats
 			"B123456789", "C123456789", "D123456789", "E123456789"};
 		private static string [] val_gnre = new string [] {"Rap",
 			"Jazz", "Non-Genre", "Blues"};
-		
-		[Test]
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
+        [Test]
 		public void TestTitle ()
 		{
 			Id3v2.Tag tag = new Id3v2.Tag ();

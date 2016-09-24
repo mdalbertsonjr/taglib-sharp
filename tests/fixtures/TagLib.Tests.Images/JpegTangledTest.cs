@@ -38,8 +38,9 @@ namespace TagLib.Tests.Images
 			return String.Format (tmp_file, i + 1);
 		}
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init () {
+            EnvironmentHelper.SetEnvironment();
 			files = new File[count];
 
 			for (int i = 0; i < count; i++)

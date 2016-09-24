@@ -11,7 +11,13 @@ namespace TagLib.Tests.Images
 	[TestFixture]
 	public class JpegPanasonicTest
 	{
-		[Test]
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
+        [Test]
 		public void Test ()
 		{
 			ImageTest.Run ("sample_panasonic.jpg",

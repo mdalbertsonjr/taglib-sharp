@@ -20,9 +20,10 @@ namespace TagLib.Tests.FileFormats
 				TagTypes.TiffIFD |
 				TagTypes.XMP;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Init()
         {
+            EnvironmentHelper.SetEnvironment();
             file = File.Create(sample_file) as Image.File;
         }
 

@@ -13,6 +13,11 @@ namespace TagLib.Tests.Images
     public class XmpCrashTest
     {
 		private static string sample_file = "samples/sample_xmpcrash.jpg";
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
 
 		[Test]
 		public void ParseXmp ()

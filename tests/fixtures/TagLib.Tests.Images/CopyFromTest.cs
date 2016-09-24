@@ -8,7 +8,13 @@ namespace TagLib.Tests.Images
 	[TestFixture]
 	public class CopyFromTest
 	{
-		[Test]
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
+        [Test]
 		public void TestJPGtoTIFF () {
 			var file1 = TagLib.File.Create ("samples/sample_canon_zoombrowser.jpg") as TagLib.Image.File;
 			Assert.IsNotNull (file1);

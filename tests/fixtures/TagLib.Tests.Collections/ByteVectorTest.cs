@@ -11,6 +11,12 @@ namespace TagLib.Tests.Collections
         private static readonly string TestInput = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         private static readonly ByteVector TestVector = ByteVector.FromString(TestInput, StringType.UTF8);
         
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
         [Test]
         public void Length()
         {

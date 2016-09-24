@@ -33,6 +33,12 @@ namespace TagLib.Tests.Images
 	[TestFixture]
 	public class IptcIimTest
 	{
+        [OneTimeSetUp]
+        public void Init()
+        {
+            EnvironmentHelper.SetEnvironment();
+        }
+
 		[Test]
 		public void Iim_Keywords ()
 		{

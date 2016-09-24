@@ -19,9 +19,10 @@ namespace TagLib.Tests.FileFormats
 		private const string tmp_file = "samples/tmpwrite.m4v";
 		private File file;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init ()
 		{
+            EnvironmentHelper.SetEnvironment();
 			file = File.Create (sample_file);
 		}
 

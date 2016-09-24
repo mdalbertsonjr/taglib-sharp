@@ -13,9 +13,10 @@ namespace TagLib.Tests.FileFormats
         private static string ext_header_file = "samples/sample_v2_3_ext_header.mp3";
         private File file;
         
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Init()
         {
+            EnvironmentHelper.SetEnvironment();
             file = File.Create(sample_file);
         }
     

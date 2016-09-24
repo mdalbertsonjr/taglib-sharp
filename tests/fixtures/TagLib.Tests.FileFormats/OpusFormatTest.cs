@@ -11,9 +11,10 @@ namespace TagLib.Tests.FileFormats
         private static string tmp_file = "samples/tmpwrite.opus";
         private File file;
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Init()
         {
+            EnvironmentHelper.SetEnvironment();
             file = File.Create(sample_file);
         }
 
