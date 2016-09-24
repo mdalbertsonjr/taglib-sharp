@@ -25,7 +25,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Globalization;
-using System.Runtime.Serialization;
+//using System.Runtime.Serialization;
 
 namespace TagLib.Riff {
 	/// <summary>
@@ -33,7 +33,7 @@ namespace TagLib.Riff {
 	///    cref="T:System.Collections.Generic.Dictionary`2" /> to provide
 	///    support for reading and writing RIFF lists.
 	/// </summary>
-	[Serializable]
+	//[Serializable]
 	[ComVisible(false)]
 	public class List : Dictionary <ByteVector,ByteVectorCollection>
 	{
@@ -124,11 +124,11 @@ namespace TagLib.Riff {
 		///    cref="List" /> implements the <see cref="ISerializable"
 		///    /> interface.
 		/// </remarks>
-		protected List (SerializationInfo info,
-		                StreamingContext context)
-			: base (info, context)
-		{
-		}
+		//protected List (SerializationInfo info,
+		//                StreamingContext context)
+		//	: base (info, context)
+		//{
+		//}
 #endregion
 		
 		
@@ -457,7 +457,7 @@ namespace TagLib.Riff {
 				RemoveValue (id);
 			else
 				SetValue (id, value.ToString (
-					CultureInfo.InvariantCulture));
+					CultureInfo.CurrentCulture));
 		}
 		
 		/// <summary>

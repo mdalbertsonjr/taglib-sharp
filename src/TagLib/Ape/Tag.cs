@@ -267,11 +267,11 @@ namespace TagLib.Ape {
 				return;
 			else if (count != 0)
 				AddValue (key, string.Format (
-					CultureInfo.InvariantCulture, "{0}/{1}",
+					CultureInfo.CurrentCulture, "{0}/{1}",
 					number, count));
 			else
 				AddValue (key, number.ToString (
-					CultureInfo.InvariantCulture));
+					CultureInfo.CurrentCulture));
 		}
 		
 		/// <summary>
@@ -310,11 +310,11 @@ namespace TagLib.Ape {
 				RemoveItem (key);
 			else if (count != 0)
 				SetValue (key, string.Format (
-					CultureInfo.InvariantCulture, "{0}/{1}",
+					CultureInfo.CurrentCulture, "{0}/{1}",
 					number, count));
 			else
 				SetValue (key, number.ToString (
-					CultureInfo.InvariantCulture));
+					CultureInfo.CurrentCulture));
 		}
 		
 		/// <summary>
@@ -476,7 +476,7 @@ namespace TagLib.Ape {
 				throw new ArgumentNullException ("key");
 			
 			StringComparison comparison =
-				StringComparison.InvariantCultureIgnoreCase;
+				StringComparison.CurrentCultureIgnoreCase;
 			
 			foreach (Item item in items)
 				if (key.Equals (item.Key, comparison))
@@ -519,7 +519,7 @@ namespace TagLib.Ape {
 				throw new ArgumentNullException ("key");
 			
 			StringComparison comparison =
-				StringComparison.InvariantCultureIgnoreCase;
+				StringComparison.CurrentCultureIgnoreCase;
 			
 			for (int i = items.Count - 1; i >= 0; i --)
 				if (key.Equals (items [i].Key, comparison))
@@ -683,7 +683,7 @@ namespace TagLib.Ape {
 		private int GetItemIndex (string key)
 		{
 			StringComparison comparison =
-				StringComparison.InvariantCultureIgnoreCase;
+				StringComparison.CurrentCultureIgnoreCase;
 			
 			for (int i = 0; i < items.Count; i ++)
 				if (key.Equals (items [i].Key, comparison))

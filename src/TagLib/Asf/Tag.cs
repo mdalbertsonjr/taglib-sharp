@@ -812,7 +812,7 @@ namespace TagLib.Asf {
 				uint value;
 				if (uint.TryParse (text.Substring (0, 4),
 					NumberStyles.Integer,
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					out value))
 					return value;
 				
@@ -826,7 +826,7 @@ namespace TagLib.Asf {
 				
 				SetDescriptorString (
 					value.ToString (
-						CultureInfo.InvariantCulture),
+						CultureInfo.CurrentCulture),
 					"WM/Year");
 			}
 		}
@@ -929,7 +929,7 @@ namespace TagLib.Asf {
 				
 				return uint.TryParse (texts [0],
 					NumberStyles.Integer,
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					out value) ? value : 0;
 			}
 			set {
@@ -941,14 +941,14 @@ namespace TagLib.Asf {
 				
 				if (count != 0) {
 					SetDescriptorString (string.Format (
-						CultureInfo.InvariantCulture,
+						CultureInfo.CurrentCulture,
 						"{0}/{1}", value, count),
 						"WM/PartOfSet");
 					return;
 				}
 				
 				SetDescriptorString (value.ToString (
-					CultureInfo.InvariantCulture),
+					CultureInfo.CurrentCulture),
 					"WM/PartOfSet");
 			}
 		}
@@ -982,7 +982,7 @@ namespace TagLib.Asf {
 				
 				return uint.TryParse (texts [1],
 					NumberStyles.Integer,
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					out value) ? value : 0;
 			}
 			set {
@@ -994,14 +994,14 @@ namespace TagLib.Asf {
 				
 				if (value != 0) {
 					SetDescriptorString (string.Format (
-						CultureInfo.InvariantCulture,
+						CultureInfo.CurrentCulture,
 						"{0}/{1}", disc, value),
 						"WM/PartOfSet");
 					return;
 				}
 				
 				SetDescriptorString (disc.ToString (
-					CultureInfo.InvariantCulture),
+					CultureInfo.CurrentCulture),
 					"WM/PartOfSet");
 			}
 		}

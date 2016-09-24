@@ -166,7 +166,7 @@ namespace TagLib.Mpeg4 {
 		public string Description {
 			get {
 				return string.Format (
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					"MPEG-4 Audio ({0})", BoxType);
 			}
 		}

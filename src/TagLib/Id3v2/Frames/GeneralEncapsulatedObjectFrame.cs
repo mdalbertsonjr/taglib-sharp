@@ -254,7 +254,7 @@ namespace TagLib.Id3v2 {
 			}
 			
 			builder.AppendFormat (
-				System.Globalization.CultureInfo.InvariantCulture,
+				System.Globalization.CultureInfo.CurrentCulture,
 				"[{0}] {1} bytes", MimeType, Object.Count);
 			
 			return builder.ToString ();

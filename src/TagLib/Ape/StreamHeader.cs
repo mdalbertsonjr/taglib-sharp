@@ -280,7 +280,7 @@ namespace TagLib.Ape {
 		public string Description {
 			get {
 				return string.Format(
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					"Monkey's Audio APE Version {0:0.000}",
 					Version);
 			}

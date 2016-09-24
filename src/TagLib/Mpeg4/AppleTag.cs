@@ -803,7 +803,8 @@ namespace TagLib.Mpeg4 {
 					ClearData (BoxType.Day);
 				else
 					SetText (BoxType.Day, value.ToString (
-						CultureInfo.InvariantCulture));
+						CultureInfo.CurrentCulture
+                        ));
 			}
 		}
 		

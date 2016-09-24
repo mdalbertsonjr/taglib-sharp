@@ -351,7 +351,7 @@ namespace TagLib.MusePack {
 		/// </value>
 		public string Description {
 			get {return string.Format (
-				System.Globalization.CultureInfo.InvariantCulture,
+				System.Globalization.CultureInfo.CurrentCulture,
 				"MusePack Version {0} Audio", Version);}
 		}
 		

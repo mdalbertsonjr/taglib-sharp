@@ -455,14 +455,14 @@ namespace TagLib.Id3v1
 				uint value;
 				return uint.TryParse (year,
 					NumberStyles.Integer,
-					CultureInfo.InvariantCulture,
+					CultureInfo.CurrentCulture,
 					out value) ? value : 0;
 			}
 			
 			set {
 				year = (value > 0 && value < 10000) ?
 					value.ToString (
-						CultureInfo.InvariantCulture) :
+						CultureInfo.CurrentCulture) :
 					String.Empty;
 			}
 		}

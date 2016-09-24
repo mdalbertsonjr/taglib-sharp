@@ -341,7 +341,7 @@ namespace TagLib.IFD
 
 			try {
 				DateTime date_time = DateTime.ParseExact (date_string,
-						DATETIME_FORMAT, System.Globalization.CultureInfo.InvariantCulture);
+						DATETIME_FORMAT, System.Globalization.CultureInfo.CurrentCulture);
 
 				return date_time;
 			} catch {}

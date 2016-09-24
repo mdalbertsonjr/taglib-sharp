@@ -39,16 +39,16 @@ namespace TagLib.Id3v2 {
 	///    cref="T:System.Collections.Generic.IEnumerable`1" /> to provide support for reading and
 	///    writing ID3v2 tags.
 	/// </summary>
-	public class Tag : TagLib.Tag, IEnumerable<Frame>, ICloneable
+	public class Tag : TagLib.Tag, IEnumerable<Frame>//, ICloneable
 	{
-#region Private Static Fields
-		
-		/// <summary>
-		///    Contains the language to use for language specific
-		///    fields.
-		/// </summary>
-		private static string language = 
-			CultureInfo.CurrentCulture.ThreeLetterISOLanguageName;
+        #region Private Static Fields
+
+        /// <summary>
+        ///    Contains the language to use for language specific
+        ///    fields.
+        /// </summary>
+        private static string language =
+            CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 		
 		/// <summary>
 		///    Contains the field to use for new tags.
@@ -545,11 +545,11 @@ namespace TagLib.Id3v2 {
 				RemoveFrames (ident);
 			} else if (count != 0) {
 				SetTextFrame (ident, string.Format (
-					CultureInfo.InvariantCulture, "{0}/{1}",
+					CultureInfo.CurrentCulture, "{0}/{1}",
 					number, count));
 			} else {
 				SetTextFrame (ident, number.ToString (
-					CultureInfo.InvariantCulture));
+					CultureInfo.CurrentCulture));
 			}
 		}
 		
@@ -1500,7 +1500,7 @@ namespace TagLib.Id3v2 {
 					
 					if (index != 255)
 						value [i] = index.ToString (
-							CultureInfo.InvariantCulture);
+							CultureInfo.CurrentCulture);
 				}
 				
 				SetTextFrame (FrameType.TCON, value);
@@ -1931,12 +1931,12 @@ namespace TagLib.Id3v2 {
 				if (text == null) {
 					return double.NaN;
 				}
-				if (text.ToLower(CultureInfo.InvariantCulture).EndsWith("db")) {
+				if (text.ToLower().EndsWith("db")) {
 					text = text.Substring (0, text.Length - 2).Trim();
 				}
 				
 				if (double.TryParse (text, NumberStyles.Float,
-					CultureInfo.InvariantCulture, out value)) {
+					CultureInfo.CurrentCulture, out value)) {
 					return value;
 				}
 				return double.NaN;
@@ -1946,7 +1946,7 @@ namespace TagLib.Id3v2 {
 					SetUserTextAsString ("REPLAYGAIN_TRACK_GAIN", null, false);
 				} else {
 					string text = value.ToString("0.00 dB",
-						CultureInfo.InvariantCulture);
+						CultureInfo.CurrentCulture);
 					SetUserTextAsString ("REPLAYGAIN_TRACK_GAIN", text, false);
 				}
 			}
@@ -1970,7 +1970,7 @@ namespace TagLib.Id3v2 {
 
 				if ((text = GetUserTextAsString ("REPLAYGAIN_TRACK_PEAK", false)) !=
 					null && double.TryParse (text, NumberStyles.Float,
-						CultureInfo.InvariantCulture, out value)) {
+						CultureInfo.CurrentCulture, out value)) {
 						return value;
 				}
 				return double.NaN;
@@ -1979,7 +1979,7 @@ namespace TagLib.Id3v2 {
 				if (double.IsNaN (value)) {
 					SetUserTextAsString ("REPLAYGAIN_TRACK_PEAK", null, false);
 				} else {
-					string text = value.ToString ("0.000000", CultureInfo.InvariantCulture);
+					string text = value.ToString ("0.000000", CultureInfo.CurrentCulture);
 					SetUserTextAsString ("REPLAYGAIN_TRACK_PEAK", text, false);
 				}
 			}
@@ -2004,12 +2004,12 @@ namespace TagLib.Id3v2 {
 				if (text == null) {
 					return double.NaN;
 				}
-				if (text.ToLower(CultureInfo.InvariantCulture).EndsWith("db")) {
+				if (text.ToLower().EndsWith("db")) {
 					text = text.Substring (0, text.Length - 2).Trim();
 				}
 				
 				if (double.TryParse (text, NumberStyles.Float,
-					CultureInfo.InvariantCulture, out value)) {
+					CultureInfo.CurrentCulture, out value)) {
 					return value;
 				}
 				return double.NaN;
@@ -2019,7 +2019,7 @@ namespace TagLib.Id3v2 {
 					SetUserTextAsString ("REPLAYGAIN_ALBUM_GAIN", null, false);
 				} else {
 					string text = value.ToString ("0.00 dB",
-						CultureInfo.InvariantCulture);
+						CultureInfo.CurrentCulture);
 					SetUserTextAsString ("REPLAYGAIN_ALBUM_GAIN", text, false);
 				}
 			}
@@ -2043,7 +2043,7 @@ namespace TagLib.Id3v2 {
 
 				if ((text = GetUserTextAsString ("REPLAYGAIN_ALBUM_PEAK", false)) !=
 					null && double.TryParse (text, NumberStyles.Float,
-						CultureInfo.InvariantCulture, out value)) {
+						CultureInfo.CurrentCulture, out value)) {
 						return value;
 				}
 				return double.NaN;
@@ -2052,7 +2052,7 @@ namespace TagLib.Id3v2 {
 				if (double.IsNaN (value)) {
 					SetUserTextAsString ("REPLAYGAIN_ALBUM_PEAK", null, false);
 				} else {
-					string text = value.ToString("0.000000", CultureInfo.InvariantCulture);
+					string text = value.ToString("0.000000", CultureInfo.CurrentCulture);
 					SetUserTextAsString ("REPLAYGAIN_ALBUM_PEAK", text, false);
 				}
 			}
@@ -2224,10 +2224,10 @@ namespace TagLib.Id3v2 {
 			return tag;
 		}
 		
-		object ICloneable.Clone ()
-		{
-			return Clone ();
-		}
+		//object ICloneable.Clone ()
+		//{
+		//	return Clone ();
+		//}
 		
 #endregion
 	}

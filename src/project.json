@@ -1,0 +1,34 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    }
+  },
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "buildOptions": {
+    "compile": {
+      "exclude": [
+        "TagLib/Xmp/",
+        "TagLib/Gif",
+        "TagLib/IFD",
+        "TagLib/Image",
+        "TagLib/Jpeg",
+        "TagLib/Matroska",
+        "TagLib/Png",
+        "TagLib/Tiff"
+      ],
+      "excludeFiles": [
+        "AssemblyInfo.cs"
+      ]
+    }
+  }
+}
