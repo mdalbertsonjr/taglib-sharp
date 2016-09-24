@@ -123,8 +123,8 @@ namespace TagLib {
 		/// </remarks>
 		public static void Register (Type type)
 		{
-			Attribute [] attrs = Attribute.GetCustomAttributes (type,
-				typeof(SupportedMimeType), false);
+            Attribute[] attrs = (Attribute[])type.GetCustomAttributes(typeof(SupportedMimeType), false);//Attribute.GetCustomAttributes (type,
+				//typeof(SupportedMimeType), false);
 			
 			if(attrs == null || attrs.Length == 0)
 				return;

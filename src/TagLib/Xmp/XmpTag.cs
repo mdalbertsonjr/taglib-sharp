@@ -23,11 +23,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Xml;
+using System.Xml.XPath;
 
 using TagLib.Image;
 using TagLib.IFD.Entries;
-
+using System.Xml;
 
 namespace TagLib.Xmp
 {
@@ -267,11 +267,16 @@ namespace TagLib.Xmp
 			XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
 			nsmgr.AddNamespace("x", ADOBE_X_NS);
 			nsmgr.AddNamespace("rdf", RDF_NS);
+          
 
-			XmlNode node = doc.SelectSingleNode("/x:xmpmeta/rdf:RDF", nsmgr);
-			// Old versions of XMP were called XAP, fall back to this case (tested in sample_xap.jpg)
-			node = node ?? doc.SelectSingleNode("/x:xapmeta/rdf:RDF", nsmgr);
-			if (node == null)
+            XPathNavigator nav = doc.CreateNavigator();
+            var selectedNode = nav.SelectSingleNode("/x:xmpmeta/rdf:RDF", nsmgr);
+            
+            // Old versions of XMP were called XAP, fall back to this case (tested in sample_xap.jpg)
+            selectedNode = selectedNode ?? nav.SelectSingleNode("/x:xapmeta/rdf:RDF", nsmgr);
+
+            XmlNode node = selectedNode.UnderlyingObject as XmlNode;
+            if (node == null)
 				throw new CorruptFileException ();
 
 			NodeTree = ParseRDF (node, file);
